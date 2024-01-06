@@ -79,12 +79,10 @@ extension SkeletonViewController: UITableViewDataSource, UITableViewDelegate {
         seeAllBtn.translatesAutoresizingMaskIntoConstraints = false
         seeAllBtn.setTitle("See All", for: .normal)
         seeAllBtn.backgroundColor = .clear
-        seeAllBtn.addTarget(self, action: #selector(seeAllTapped(sender:)), for: .touchUpInside)
+        seeAllBtn.addTarget(self, action: #selector(seeAllTapped(sender:)), for: .primaryActionTriggered)
         seeAllBtn.tag = section
         headerView.addSubview(title)
         headerView.addSubview(seeAllBtn)
-        
-        
         
         NSLayoutConstraint.activate([
 //            headerView.widthAnchor.c
@@ -103,6 +101,7 @@ extension SkeletonViewController: UITableViewDataSource, UITableViewDelegate {
                                     ])
         headerView.addSubview(title)
         headerView.addSubview(seeAllBtn)
+        headerView.isUserInteractionEnabled = true
         return headerView
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -111,10 +110,9 @@ extension SkeletonViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     @objc func seeAllTapped(sender: UIButton)  {
-//        let currentSection = sender.tag
-//        debugPrint("\(sectionTitles[currentSection]) see all tapped!")
+        let currentSection = sender.tag
+        debugPrint("\(sectionTitles[currentSection]) see all tapped!")
 //        performSegue(withIdentifier: K.AllThemesSegue, sender: self)
-        
 
     }
 }
