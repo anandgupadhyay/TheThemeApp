@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17B932F52B482A5500C84C52 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B932EF2B482A5500C84C52 /* Theme.swift */; };
+		17B932F62B482A5500C84C52 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B932F12B482A5500C84C52 /* Strings.swift */; };
+		17B932F72B482A5500C84C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B932F32B482A5500C84C52 /* Main.storyboard */; };
 		17CAAD552B481D040025B72B /* AllThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAAD4E2B481D040025B72B /* AllThemesViewController.swift */; };
 		17CAAD562B481D040025B72B /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAAD502B481D040025B72B /* CollectionCell.swift */; };
 		17CAAD572B481D040025B72B /* SeeAllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAAD512B481D040025B72B /* SeeAllCell.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17B932EF2B482A5500C84C52 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		17B932F12B482A5500C84C52 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		17B932F42B482A5500C84C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17CAAD4E2B481D040025B72B /* AllThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllThemesViewController.swift; sourceTree = "<group>"; };
 		17CAAD502B481D040025B72B /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		17CAAD512B481D040025B72B /* SeeAllCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAllCell.swift; sourceTree = "<group>"; };
@@ -49,6 +55,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17B932EE2B482A5500C84C52 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17B932EF2B482A5500C84C52 /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		17B932F02B482A5500C84C52 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				17B932F12B482A5500C84C52 /* Strings.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		17B932F22B482A5500C84C52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17B932F32B482A5500C84C52 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		17CAAD4F2B481D040025B72B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +108,9 @@
 		3AB3A13C2B42FA5D00E5DCD7 /* Theme-App */ = {
 			isa = PBXGroup;
 			children = (
+				17B932EE2B482A5500C84C52 /* Models */,
+				17B932F02B482A5500C84C52 /* Utilities */,
+				17B932F22B482A5500C84C52 /* Views */,
 				3ADDB1B52B43DE1200FE256B /* Controllers */,
 				3AB3A13D2B42FA5D00E5DCD7 /* AppDelegate.swift */,
 				3AB3A13F2B42FA5D00E5DCD7 /* SceneDelegate.swift */,
@@ -164,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B932F72B482A5500C84C52 /* Main.storyboard in Resources */,
 				3AB3A14A2B42FA5F00E5DCD7 /* LaunchScreen.storyboard in Resources */,
 				3AB3A1472B42FA5F00E5DCD7 /* Assets.xcassets in Resources */,
 			);
@@ -177,12 +211,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB3A1422B42FA5D00E5DCD7 /* ViewController.swift in Sources */,
+				17B932F62B482A5500C84C52 /* Strings.swift in Sources */,
 				17CAAD572B481D040025B72B /* SeeAllCell.swift in Sources */,
 				3AB3A13E2B42FA5D00E5DCD7 /* AppDelegate.swift in Sources */,
 				17CAAD582B481D040025B72B /* TableCell.swift in Sources */,
 				17CAAD552B481D040025B72B /* AllThemesViewController.swift in Sources */,
 				17CAAD5A2B481D040025B72B /* SkeletonViewController.swift in Sources */,
 				17CAAD592B481D040025B72B /* SelectedThemeViewController.swift in Sources */,
+				17B932F52B482A5500C84C52 /* Theme.swift in Sources */,
 				3AB3A1402B42FA5D00E5DCD7 /* SceneDelegate.swift in Sources */,
 				17CAAD562B481D040025B72B /* CollectionCell.swift in Sources */,
 			);
@@ -191,6 +227,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		17B932F32B482A5500C84C52 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17B932F42B482A5500C84C52 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		3AB3A1482B42FA5F00E5DCD7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -254,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -311,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -407,8 +451,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.10.1;
+				kind = exactVersion;
+				version = 7.10.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

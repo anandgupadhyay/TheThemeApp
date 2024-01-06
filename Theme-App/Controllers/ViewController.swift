@@ -13,14 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var titleView: UIView!
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        
         setBgImg()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleView.layer.cornerRadius = 28
     }
 

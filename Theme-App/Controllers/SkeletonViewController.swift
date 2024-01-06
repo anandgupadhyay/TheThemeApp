@@ -22,7 +22,12 @@ class SkeletonViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeTable.sectionHeaderTopPadding = 20
+        if #available(iOS 15.0, *) {
+            homeTable.sectionHeaderTopPadding = 20
+        } else {
+            // Fallback on earlier versions
+        }
+
 
     }
     
@@ -106,7 +111,7 @@ extension SkeletonViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     @objc func seeAllTapped(sender: UIButton)  {
-        let currentSection = sender.tag
+//        let currentSection = sender.tag
 //        debugPrint("\(sectionTitles[currentSection]) see all tapped!")
 //        performSegue(withIdentifier: K.AllThemesSegue, sender: self)
         
