@@ -29,7 +29,6 @@ class GetStartedVC: UIViewController {
 
     }
     
-    
     func setBgImg() {
         let rawUrl = K.defaultBg
         
