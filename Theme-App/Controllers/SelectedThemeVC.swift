@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 class SelectedThemeVC: UIViewController {
 
     @IBOutlet weak var bgImg: UIImageView!
@@ -56,12 +58,27 @@ class SelectedThemeVC: UIViewController {
     
     
     func setBgImg() {
-        //  fetching stored url from userDefaults
-        let usrDefault = UserDefaults.standard
-        let rawUrl = usrDefault.string(forKey: "CurrentBg")!
-        guard let imgURL = URL(string: rawUrl) else { return }
-        //  fetching image and displaying it using KingFisher dependency
-        bgImg.kf.setImage(with: imgURL)
+        //to get the saved background image url 9 Jan 2024
+        if let bgUrl = UserDefaults.standard.string(forKey: UserDefaultKeys.appBackgorundImageUrl.rawValue) {
+            backgroundURL = bgUrl
+        }
+        
+        if backgroundURL != nil{
+            self.fetchPassBackgroundImage(imageUrl: backgroundURL!)
+        }else{
+            
+        }
+    }
+    
+    func fetchPassBackgroundImage(imageUrl: String) {
+        
+        //Added on 22 Nov by SANDREW
+        guard let url = URL.init(string: imageUrl) else {
+            return
+        }
+        let resource = KF.ImageResource(downloadURL: url, cacheKey: imageUrl)
+        bgImg.kf.setImage(with: resource)
+        
     }
     
     func customNavBar() {
@@ -75,11 +92,13 @@ class SelectedThemeVC: UIViewController {
         view.addSubview(customNavigationBar)
         
         let backBtn = UIButton()
-        backBtn.backgroundColor = .clear
-        backBtn.layer.borderColor =  UIColor.white.cgColor
-        backBtn.layer.borderWidth = 1.5
-        backBtn.layer.cornerRadius = 10
-        backBtn.setTitle("Back", for: .normal)
+//        backBtn.backgroundColor = .clear
+//        backBtn.layer.borderColor =  UIColor.white.cgColor
+//        backBtn.layer.borderWidth = 1.5
+//        backBtn.layer.cornerRadius = 10
+//        backBtn.setTitle("BACK", for: .normal)
+        backBtn.setBackButtonCornerAndBorder()
+        backBtn.setTitle("BACK", for: .normal)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         backBtn.addTarget(self, action: #selector(backBtnTapped(sender:)), for: .touchUpInside)
         customNavigationBar.addSubview(backBtn)
@@ -87,8 +106,8 @@ class SelectedThemeVC: UIViewController {
         // Heading of screen
         let titleLabel = UILabel()
         titleLabel.text="Theme Store"
-        titleLabel.font = UIFont(name: "System", size: 22)
-        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.textColor = ColorHandlerSinglton.shared.currentSelectedColorForAPPTitle
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         customNavigationBar.addSubview(titleLabel)
         
@@ -143,7 +162,9 @@ class SelectedThemeVC: UIViewController {
     
     
     @IBAction func applyThemeTapped(_ sender: UIButton) {
-        
+        //to set the background image url 9 Jan 2024
+//        UserDefaults.standard.set(backgroundURL, forKey:UserDefaultKeys.appBackgorundImageUrl.rawValue)
+//        NotificationCenter.default.post(name: Notification.Name("BackgroundImageFetch"), object: nil)
     }
     
     

@@ -15,9 +15,10 @@ protocol selectedWallpaperDelegate {
 class TableCell: UITableViewCell{
     
     @IBOutlet weak var homeCollection: UICollectionView!
+    
     var currentIndex = 0
     var currentSection = 0
-    
+    var isLoading = true
     var delegate: selectedWallpaperDelegate?
 
     var imgUrlArr = [
@@ -40,16 +41,25 @@ class TableCell: UITableViewCell{
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
+    func reloadImages(){
+        homeCollection.reloadData()
+        
+//        stopShimerAfterSomeTime()
+    }
+    
+//    func stopShimerAfterSomeTime(){
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+3) { [weak self] in
+//            self?.isLoading = false
+//            self?.homeCollection.reloadData()
+//        }
+//    }
 }
 
 
 extension TableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
@@ -62,38 +72,36 @@ extension TableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         currentIndex = indexPath.item
         currentSection = homeCollection.tag
         
-        
         cell.wallpaperImg.image = UIImage(named: "placeholder")
         cell.wallpaperImg.kf.indicatorType = .activity
         cell.wallpaperImg.layer.cornerRadius = 25
         
         //  kingfisher code
-        let cache = ImageCache.default
-        cache.memoryStorage.config.expiration = .seconds(600/2)
+//        let cache = ImageCache.default
+//        cache.memoryStorage.config.expiration = .seconds(600/2)
 //        let cached = cache.isCached(forKey: "img\(currentSection)\(currentIndex)")
-        let cached = cache.isCached(forKey: "img\(currentSection)")
-        if(cached) {
+//        let cached = cache.isCached(forKey: "img\(currentSection)")
+//        if(cached) {
             
-            cache.retrieveImageInDiskCache(forKey: "img\(currentSection)") { result in
-                switch result {
-                    //  IF IMAGE IS PRESENT IN CACHE
-                case .success(let value):
-                    print("cashed")
-                    DispatchQueue.main.async {
-                        cell.wallpaperImg.image = value
-                    }
-                    //  IF error occured
-                case .failure(let error):
-                    print("failed to retrice image form cache\(error)")
-                    
-                }
-            }
-            //  IF IMAGE IS NOT PRESENT IN CACHE
-        } else {
+//            cache.retrieveImageInDiskCache(forKey: "img\(currentSection)") { result in
+//                switch result {
+//                    //  IF IMAGE IS PRESENT IN CACHE
+//                case .success(let value):
+//                    print("cashed")
+//                    DispatchQueue.main.async {
+//                        cell.wallpaperImg.image = value
+//                    }
+//                    //  IF error occured
+//                case .failure(let error):
+//                    print("failed to retrice image form cache\(error)")
+//                    
+//                }
+//            }
+//            //  IF IMAGE IS NOT PRESENT IN CACHE
+//        } else {
             cell.wallpaperImg.kf.indicatorType = .activity
-            let resource = KF.ImageResource(downloadURL: URL(string: imgUrlArr[homeCollection.tag])!, cacheKey: "img\(currentSection)\(currentIndex)")
-            cell.wallpaperImg.kf.setImage(with: resource, placeholder: UIImage(named: "placeholder"), options: [.transition(.fade(0.2))])
-        }
+            let resource = KF.ImageResource(downloadURL: URL(string: imgUrlArr[homeCollection.tag])!, cacheKey: imgUrlArr[homeCollection.tag])
+            cell.wallpaperImg.kf.setImage(with: resource)//, placeholder: UIImage(named: "placeholder"), options: [.transition(.fade(0.2))])
         
         return cell
     }
@@ -105,9 +113,7 @@ extension TableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        debugPrint("Image at \(indexPath.item) in \(homeCollection.tag) section is tapped!")
         delegate?.didSelectItemIndex(index: indexPath)
-        
     }
     
     
@@ -115,9 +121,9 @@ extension TableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         return 20
     }
  
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+    }
     
 //    func CacheImg() {
 //        let ImgRec = ImageResource(downloadURL: imgUrlArr[currentSection], cacheKey: "img\(currentSection)\(currentIndex)")

@@ -7,10 +7,15 @@
 
 import UIKit
 
-
-class CollectionCell: UICollectionViewCell {
+class CollectionCell: UICollectionViewCell, ShimmeringViewProtocol {
     
     @IBOutlet weak var wallpaperImg: UIImageView!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            wallpaperImg
+        ]
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

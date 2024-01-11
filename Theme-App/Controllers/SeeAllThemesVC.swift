@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SeeAllThemesVC: UIViewController {
 
@@ -24,17 +25,31 @@ class SeeAllThemesVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
 //        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         customNavBar()
-        
     }
     
 
     func setBgFromUsrDefault() {
-        // fetching stored url from userDefaults
-        let usrDefault = UserDefaults.standard
-        let rawUrl = usrDefault.string(forKey: "CurrentBg")!
-        guard let imgURL = URL(string: rawUrl) else { return }
-        //fetching image and displaying it using KingFisher dependency
-        bgImg.kf.setImage(with: imgURL)
+        //to get the saved background image url 9 Jan 2024
+        if let bgUrl = UserDefaults.standard.string(forKey: UserDefaultKeys.appBackgorundImageUrl.rawValue) {
+            backgroundURL = bgUrl
+        }
+        
+        if backgroundURL != nil{
+            self.fetchPassBackgroundImage(imageUrl: backgroundURL!)
+        }else{
+            
+        }
+    }
+    
+    func fetchPassBackgroundImage(imageUrl: String) {
+        
+        //Added on 22 Nov by SANDREW
+        guard let url = URL.init(string: imageUrl) else {
+            return
+        }
+        let resource = KF.ImageResource(downloadURL: url, cacheKey: imageUrl)
+        bgImg.kf.setImage(with: resource)
+        
     }
     
     func customNavBar() {
@@ -48,11 +63,14 @@ class SeeAllThemesVC: UIViewController {
         view.addSubview(customNavigationBar)
         
         let backBtn = UIButton()
-        backBtn.backgroundColor = .clear
-        backBtn.layer.borderColor =  UIColor.white.cgColor
-        backBtn.layer.borderWidth = 1.5
-        backBtn.layer.cornerRadius = 10
-        backBtn.setTitle("Back", for: .normal)
+//        backBtn.backgroundColor = .clear
+//        backBtn.layer.borderColor =  UIColor.white.cgColor
+//        backBtn.layer.borderWidth = 1.5
+//        backBtn.layer.cornerRadius = 10
+//        backBtn.setTitle("BACK", for: .normal)
+        backBtn.setBackButtonCornerAndBorder()
+        backBtn.setTitle("BACK", for: .normal)
+
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         backBtn.addTarget(self, action: #selector(backBtnTapped(sender:)), for: .touchUpInside)
         customNavigationBar.addSubview(backBtn)
@@ -60,8 +78,9 @@ class SeeAllThemesVC: UIViewController {
         // Heading of screen
         let titleLabel = UILabel()
         titleLabel.text = "\(titleText) Themes"
-        titleLabel.font = UIFont(name: "System", size: 22)
-        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.textColor = ColorHandlerSinglton.shared.currentSelectedColorForAPPTitle
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         customNavigationBar.addSubview(titleLabel)
         
@@ -108,13 +127,16 @@ extension SeeAllThemesVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.collectionImg.kf.indicatorType = .activity
         cell.collectionImg.layer.cornerRadius = 25
         cell.collectionImg.layer.masksToBounds = true
-        cell.collectionImg.kf.setImage(with: URL(string: K.imgUrl1), placeholder: UIImage(named: "placeholder"))
+        cell.collectionImg.kf.setImage(with: URL(string: K.imgUrl1))//, placeholder: UIImage(named: "placeholder"))
+        cell.lblName.text = "Theme Name"
+        cell.lblName.textColor = .white
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width/2 - 18, height: 210)
+        return CGSize(width: view.frame.size.width/2 - 20 , height: 220)
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         imgIndex = indexPath.section
         performSegue(withIdentifier: K.selectedThemeSegue, sender: self)
     }
