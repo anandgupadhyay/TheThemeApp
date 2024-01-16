@@ -15,7 +15,7 @@ class ThemeStoreVC: UIViewController, selectedWallpaperDelegate {
     @IBOutlet weak var homeTable: UITableView!
     @IBOutlet weak var btnMyThemes: UIButton!
     
-    var sectionTitles = ["Best Selling", "New Year", "Movies", "Traditional", "Trending", "Graphic", "Premium", "Free"]
+    var sectionTitles = ["January", "Feb", "Movies", "Traditional", "Trending", "Graphic", "Premium", "Free"]
     var currentSection = 0
     var tappedWallpaper = 0
     var isLoading = true
