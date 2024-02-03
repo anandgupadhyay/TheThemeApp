@@ -23,10 +23,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JB-dL-h4l">
+                                <rect key="frame" x="175" y="451" width="42" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0JB-dL-h4l" firstAttribute="centerX" secondItem="DUv-PQ-3Ud" secondAttribute="centerX" id="ONW-sa-BVO"/>
+                            <constraint firstItem="0JB-dL-h4l" firstAttribute="top" secondItem="DUv-PQ-3Ud" secondAttribute="bottom" constant="8" symbolic="YES" id="e8H-aC-Nrl"/>
                             <constraint firstItem="DUv-PQ-3Ud" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="n5J-Jk-wkA"/>
                             <constraint firstItem="DUv-PQ-3Ud" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ylA-ZL-JJx"/>
                         </constraints>
@@ -34,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
