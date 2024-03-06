@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170CDC192B9820D5005BB8F2 /* UIView-Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 170CDC182B9820D5005BB8F2 /* UIView-Shimmer */; };
 		176EB58C2B4D5C1300FDB215 /* SelectedThemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB5882B4D5C1300FDB215 /* SelectedThemeVC.swift */; };
 		176EB58D2B4D5C1300FDB215 /* SeeAllThemesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB5892B4D5C1300FDB215 /* SeeAllThemesVC.swift */; };
 		176EB58E2B4D5C1300FDB215 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB58A2B4D5C1300FDB215 /* GetStartedVC.swift */; };
@@ -51,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A19D0BB2B45336B00F0340A /* Kingfisher in Frameworks */,
+				170CDC192B9820D5005BB8F2 /* UIView-Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +156,7 @@
 			name = "Theme-App";
 			packageProductDependencies = (
 				3A19D0BA2B45336B00F0340A /* Kingfisher */,
+				170CDC182B9820D5005BB8F2 /* UIView-Shimmer */,
 			);
 			productName = "Theme-App";
 			productReference = 3AB3A13A2B42FA5D00E5DCD7 /* Theme-App.app */;
@@ -185,6 +188,7 @@
 			mainGroup = 3AB3A1312B42FA5D00E5DCD7;
 			packageReferences = (
 				3A19D0B92B45336B00F0340A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				170CDC172B9820D5005BB8F2 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */,
 			);
 			productRefGroup = 3AB3A13B2B42FA5D00E5DCD7 /* Products */;
 			projectDirPath = "";
@@ -453,6 +457,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		170CDC172B9820D5005BB8F2 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/omerfarukozturk/UIView-Shimmer.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.4;
+			};
+		};
 		3A19D0B92B45336B00F0340A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -464,6 +476,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		170CDC182B9820D5005BB8F2 /* UIView-Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 170CDC172B9820D5005BB8F2 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */;
+			productName = "UIView-Shimmer";
+		};
 		3A19D0BA2B45336B00F0340A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3A19D0B92B45336B00F0340A /* XCRemoteSwiftPackageReference "Kingfisher" */;
