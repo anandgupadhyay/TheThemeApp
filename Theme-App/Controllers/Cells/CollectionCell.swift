@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class CollectionCell: UICollectionViewCell, ShimmeringViewProtocol {
     
     @IBOutlet weak var wallpaperImg: UIImageView!

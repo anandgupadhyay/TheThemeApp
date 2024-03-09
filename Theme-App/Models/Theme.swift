@@ -21,3 +21,11 @@ struct Theme: Codable {
     let description: String
 }
 
+
+enum UserDefaultKeys : String {
+    case appAlertStoreTimeStamp = "appAlertStoreTimeStamp"
+    case appOpenTrackerUpdate = "appOpenTrackerUpdate"
+    case appBackgorundImageUrl = "appBackgorundImageUrl"
+    case downloadingPockets = "DownloadingPockets"
+    case deletedPassIds = "DeletedPassIds"
+}
