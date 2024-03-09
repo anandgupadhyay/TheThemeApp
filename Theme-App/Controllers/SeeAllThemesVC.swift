@@ -12,7 +12,7 @@ class SeeAllThemesVC: UIViewController {
 
     @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var themeCollection: UICollectionView!
-    
+    var backgroundURL: String?
     var titleText = ""
     var imgIndex = 0
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +68,7 @@ class SeeAllThemesVC: UIViewController {
 //        backBtn.layer.borderWidth = 1.5
 //        backBtn.layer.cornerRadius = 10
 //        backBtn.setTitle("BACK", for: .normal)
-        backBtn.setBackButtonCornerAndBorder()
+//        backBtn.setBackButtonCornerAndBorder()
         backBtn.setTitle("BACK", for: .normal)
 
         backBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,7 @@ class SeeAllThemesVC: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = "\(titleText) Themes"
         titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.textColor = ColorHandlerSinglton.shared.currentSelectedColorForAPPTitle
+//        titleLabel.textColor = ColorHandlerSinglton.shared.currentSelectedColorForAPPTitle
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         customNavigationBar.addSubview(titleLabel)
