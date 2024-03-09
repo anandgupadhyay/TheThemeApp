@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		170CDC192B9820D5005BB8F2 /* UIView-Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 170CDC182B9820D5005BB8F2 /* UIView-Shimmer */; };
+		172E7FAB2B9C221F008AC597 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E7FA52B9C221F008AC597 /* Constants.swift */; };
+		172E7FAC2B9C221F008AC597 /* ShimmeringViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E7FA62B9C221F008AC597 /* ShimmeringViewProtocol.swift */; };
+		172E7FAD2B9C221F008AC597 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E7FA82B9C221F008AC597 /* UIView+Extensions.swift */; };
+		172E7FAE2B9C221F008AC597 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E7FA92B9C221F008AC597 /* UIView+Shimmer.swift */; };
+		172E7FAF2B9C221F008AC597 /* UIView+Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E7FAA2B9C221F008AC597 /* UIView+Template.swift */; };
 		176EB58C2B4D5C1300FDB215 /* SelectedThemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB5882B4D5C1300FDB215 /* SelectedThemeVC.swift */; };
 		176EB58D2B4D5C1300FDB215 /* SeeAllThemesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB5892B4D5C1300FDB215 /* SeeAllThemesVC.swift */; };
 		176EB58E2B4D5C1300FDB215 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EB58A2B4D5C1300FDB215 /* GetStartedVC.swift */; };
@@ -27,6 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172E7FA52B9C221F008AC597 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		172E7FA62B9C221F008AC597 /* ShimmeringViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmeringViewProtocol.swift; sourceTree = "<group>"; };
+		172E7FA82B9C221F008AC597 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		172E7FA92B9C221F008AC597 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
+		172E7FAA2B9C221F008AC597 /* UIView+Template.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Template.swift"; sourceTree = "<group>"; };
 		176EB5882B4D5C1300FDB215 /* SelectedThemeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedThemeVC.swift; sourceTree = "<group>"; };
 		176EB5892B4D5C1300FDB215 /* SeeAllThemesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAllThemesVC.swift; sourceTree = "<group>"; };
 		176EB58A2B4D5C1300FDB215 /* GetStartedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
@@ -59,6 +69,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172E7FA22B9C221F008AC597 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				172E7FA32B9C221F008AC597 /* SShimmer */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		172E7FA32B9C221F008AC597 /* SShimmer */ = {
+			isa = PBXGroup;
+			children = (
+				172E7FA42B9C221F008AC597 /* Models */,
+				172E7FA72B9C221F008AC597 /* UIView+Extensions */,
+			);
+			path = SShimmer;
+			sourceTree = "<group>";
+		};
+		172E7FA42B9C221F008AC597 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				172E7FA52B9C221F008AC597 /* Constants.swift */,
+				172E7FA62B9C221F008AC597 /* ShimmeringViewProtocol.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		172E7FA72B9C221F008AC597 /* UIView+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				172E7FA82B9C221F008AC597 /* UIView+Extensions.swift */,
+				172E7FA92B9C221F008AC597 /* UIView+Shimmer.swift */,
+				172E7FAA2B9C221F008AC597 /* UIView+Template.swift */,
+			);
+			path = "UIView+Extensions";
+			sourceTree = "<group>";
+		};
 		17B932EE2B482A5500C84C52 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +159,7 @@
 		3AB3A13C2B42FA5D00E5DCD7 /* Theme-App */ = {
 			isa = PBXGroup;
 			children = (
+				172E7FA22B9C221F008AC597 /* Utils */,
 				17B932EE2B482A5500C84C52 /* Models */,
 				17B932F02B482A5500C84C52 /* Utilities */,
 				17B932F22B482A5500C84C52 /* Views */,
@@ -220,15 +267,20 @@
 				17B932F62B482A5500C84C52 /* Strings.swift in Sources */,
 				17CAAD572B481D040025B72B /* SeeAllCell.swift in Sources */,
 				3AB3A13E2B42FA5D00E5DCD7 /* AppDelegate.swift in Sources */,
+				172E7FAF2B9C221F008AC597 /* UIView+Template.swift in Sources */,
 				17CAAD582B481D040025B72B /* TableCell.swift in Sources */,
 				17B932F52B482A5500C84C52 /* Theme.swift in Sources */,
 				176EB58E2B4D5C1300FDB215 /* GetStartedVC.swift in Sources */,
 				176EB58D2B4D5C1300FDB215 /* SeeAllThemesVC.swift in Sources */,
+				172E7FAB2B9C221F008AC597 /* Constants.swift in Sources */,
+				172E7FAE2B9C221F008AC597 /* UIView+Shimmer.swift in Sources */,
 				176EB58C2B4D5C1300FDB215 /* SelectedThemeVC.swift in Sources */,
 				176EB58F2B4D5C1300FDB215 /* ThemeStoreVC.swift in Sources */,
 				3AB3A1402B42FA5D00E5DCD7 /* SceneDelegate.swift in Sources */,
 				176EB5912B4D5C1F00FDB215 /* SelectedCell.swift in Sources */,
+				172E7FAD2B9C221F008AC597 /* UIView+Extensions.swift in Sources */,
 				17CAAD562B481D040025B72B /* CollectionCell.swift in Sources */,
+				172E7FAC2B9C221F008AC597 /* ShimmeringViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
